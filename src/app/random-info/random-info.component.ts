@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoService } from '../info.service';
 
 @Component({
   selector: 'app-random-info',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./random-info.component.css']
 })
 export class RandomInfoComponent implements OnInit {
-
   heading = "my test heading"
-  infos = [ "info1", "info2", "info3" ]
-  constructor() { }
+  infos: string[];
+
+  // This service dependency is provided by Angular's built in DI framework
+  constructor(infoService: InfoService) {
+    this.infos = infoService.info;
+  }
 
   ngOnInit() {
   }
