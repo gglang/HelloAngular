@@ -1,1 +1,9 @@
-<p>random-info works!</p>
+<h2>
+    {{ "This is how we template: " + heading }}
+</h2>
+<ul>
+    <!-- Here we use a DOM modifying directive to make a list dynamically -->
+    <li *ngFor="let info of infos">
+        {{ info }}
+    </li>
+</ul>
